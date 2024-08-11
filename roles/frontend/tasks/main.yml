@@ -14,26 +14,10 @@
     name: nginx
     state: started
 
-- name: Remove directory
-  ansible.builtin.file:
-    path: "{{app_location}}"
-    state: absent
-
-- name: make a directory
-  ansible.builtin.file:
-    path: "{{app_location}}"
-    state: directory
-
-- name: download frontend code
-  ansible.builtin.get_url:
-    url: https://expense-artifacts.s3.amazonaws.com/expense-{{ component }}-v2.zip
-    dest: /tmp/{{ component }}.zip
-
-- name: unarchive frontend code
-  ansible.builtin.unarchive:
-    src: /tmp/{{ component }}.zip
-    dest: "{{ app_location }}"
-    remote_src: yes
+- name: Import role to the play
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
 - name: copy expense conf
   ansible.builtin.template:

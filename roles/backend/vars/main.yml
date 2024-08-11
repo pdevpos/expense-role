@@ -2,3 +2,4 @@ login_user : root
 mysql_connection_pass : ExpenseApp@1
 mysql_login_hosts : db.pdevops72.online
 DB_HOSTS : db.pdevops72.online
+app_location: /app
