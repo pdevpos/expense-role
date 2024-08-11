@@ -15,11 +15,6 @@
       - PyMySQL
       - cryptography
     executable: pip3.9
-  register: mysql_dependencies
-
-- name: mysql dependencies
-  ansible.builtin.debug:
-    msg: "{{ mysql_dependencies }}"
 
 # Check DB connection
 - name: Get MySQL version with non-default credentials
