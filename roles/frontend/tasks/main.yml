@@ -26,18 +26,18 @@
 
 - name: download frontend code
   ansible.builtin.get_url:
-    url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
+    url: https://expense-artifacts.s3.amazonaws.com/expense-{{ component }}-v2.zip
+    dest: /tmp/{{ component }}.zip
 
 - name: unarchive frontend code
   ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
+    src: /tmp/{{ component }}.zip
     dest: "{{ app_location }}"
     remote_src: yes
 
 - name: copy expense conf
-  ansible.builtin.copy:
-    src: expense.conf
+  ansible.builtin.template:
+    src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
 
 - name: restart nginx service
