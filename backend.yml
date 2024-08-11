@@ -1,6 +1,6 @@
 - name: configure mysql server
   hosts: backend
-  var_files:
+  vars_files:
     - credentials.yml
   become: yes
   roles:
