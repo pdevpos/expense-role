@@ -1,5 +1,5 @@
 - name: configure mysql server
-  hosts: db.pdevops72.online
+  hosts: db
   become: yes
   roles:
     - db
