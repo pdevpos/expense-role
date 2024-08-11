@@ -1,3 +1,4 @@
 login_user: root
 mysql_Connection_password: ExpenseApp@1
 login_host: db.pdevops72.online
+component: mysql
