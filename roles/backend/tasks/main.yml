@@ -59,7 +59,7 @@
   community.mysql.mysql_db:
     login_user: "{{ login_user }}"
     login_password: "{{ mysql_connection_pass }}"
-    login_host: "{{ backend_hosts }}"
+    login_host: "{{ mysql_login_hosts }}"
     state: import
     name: all
     target: /app/schema/backend.sql
