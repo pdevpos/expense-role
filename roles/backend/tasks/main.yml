@@ -23,27 +23,10 @@
   ansible.builtin.user:
     name: expense
 
-- name: remove a directory
-  ansible.builtin.file:
-    path: "{{ app_location }}"
-    state: absent
-
-- name: Make a directory
-  ansible.builtin.file:
-    path: "{{ app_location }}"
-    state: directory
-
-- name: download backend code
-  ansible.builtin.get_url:
-    url: https://expense-artifacts.s3.amazonaws.com/expense-{{ component }}-v2.zip
-    dest: /tmp/{{ component }}.zip
-
-
-- name: Unarchive a backend code that is already on the remote machine
-  ansible.builtin.unarchive:
-    src: /tmp/{{ component }}.zip
-    dest: "{{ app_location }}"
-    remote_src: yes
+- name: Import role to the play
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
 - name: install npm
   ansible.builtin.command: npm install -y
