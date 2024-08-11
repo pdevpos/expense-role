@@ -15,7 +15,7 @@
       - PyMySQL
       - cryptography
     executable: pip3.9
-    register: mysql_dependencies
+  register: mysql_dependencies
 
 - name: mysql dependencies
   ansible.builtin.debug:
