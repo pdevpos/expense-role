@@ -1,3 +1,4 @@
 login_user : root
 mysql_connection_pass : ExpenseApp@1
 backend_hosts : backend.pdevops72.online
+DB_HOSTS : db.pdevops72.online
