@@ -25,6 +25,8 @@
 
 - name: Import role to the play
   ansible.builtin.import_role:
+    tags:
+      - deployment
     name: common
     tasks_from: app-pre-req
 
@@ -53,6 +55,8 @@
 
 - name: start and enable service
   ansible.builtin.service:
+    tags:
+      - deployment
     name: "{{ component }}"
     state: started
     enabled: yes
