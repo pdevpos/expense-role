@@ -1,3 +1,9 @@
 plugin: amazon.aws.aws_ec2
 regions:
   - us-east-1
+# to bring specific instances in an dynamic inventory
+keyed_groups:
+  # add hosts to tag_Name_value groups for each aws_ec2 host's tags.Name variable.
+- key: tags['Name']
+  prefix: ''
+  parent_group: ''
