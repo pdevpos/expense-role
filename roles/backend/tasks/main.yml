@@ -24,9 +24,9 @@
     name: expense
 
 - name: Import role to the play
+  tags:
+    - deployment
   ansible.builtin.import_role:
-    tags:
-      - deployment
     name: common
     tasks_from: app-pre-req
 
@@ -60,9 +60,9 @@
     daemon_reload: true
 
 - name: restart and enable service
+  tags:
+    - deployment
   ansible.builtin.service:
-    tags:
-      - deployment
     name: "{{ component }}"
     state: restarted
     enabled: yes
